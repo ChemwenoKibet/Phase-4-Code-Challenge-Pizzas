@@ -64,3 +64,14 @@ Pizza.create!([
     ingredients: "Dough, Sauce, Cheese, Red Peppers, Green Peppers, Onions, Mushrooms"
   }
 ])
+puts "🍕 Adding pizzas to restaurants..."
+Restaurant.all.each do |restaurant|
+  rand(1..5).times do
+    # get a random pizza
+    pizza = Pizza.find(Pizza.pluck(:id).sample)
+
+    RestaurantPizza.create!(restaurant_id: restaurant.id, pizza_id: pizza.id, price: rand(5..25))
+  end
+end
+
+puts "🍕 Done seeding!"
