@@ -1069,3 +1069,131 @@ Processing by PizzasController#index as HTML
 Completed 200 OK in 54ms (Views: 41.2ms | ActiveRecord: 1.3ms | Allocations: 27034)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePizzas (20230319121548)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "pizzas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ingredients" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePizzas (20230319121548)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "pizzas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ingredients" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePizzas (20230319121548)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "pizzas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ingredients" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (99.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (95.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePizzas (20230319121548)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "pizzas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ingredients" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230319121548"]]
+  [1m[36mTRANSACTION (106.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRestaurants (20230319121629)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230319121629"]]
+  [1m[36mTRANSACTION (107.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRestaurantPizzas (20230319121707)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "restaurant_pizzas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "price" integer, "pizza_id" integer NOT NULL, "restaurant_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ab3bb148dc"
+FOREIGN KEY ("pizza_id")
+  REFERENCES "pizzas" ("id")
+, CONSTRAINT "fk_rails_f279821f06"
+FOREIGN KEY ("restaurant_id")
+  REFERENCES "restaurants" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_restaurant_pizzas_on_pizza_id" ON "restaurant_pizzas" ("pizza_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_restaurant_pizzas_on_restaurant_id" ON "restaurant_pizzas" ("restaurant_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230319121707"]]
+  [1m[36mTRANSACTION (113.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-19 12:55:41.187689"], ["updated_at", "2023-03-19 12:55:41.187689"]]
+  [1m[36mTRANSACTION (101.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-03-19 16:11:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.8ms | Allocations: 705)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 3314)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2023-03-19 16:11:13 +0300
+Processing by PizzasController#index as HTML
+  [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 31ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 5708)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-03-19 16:14:25 +0300
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/controllers/restaurants_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 8ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 3224)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (17.1ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sottocasa NYC"], ["address", "298 Atlantic Ave, Brooklyn, NY 11201"], ["created_at", "2023-03-19 15:06:52.908040"], ["updated_at", "2023-03-19 15:06:52.908040"]]
+  [1m[36mTRANSACTION (78.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.9ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "PizzArte"], ["address", "69 W 55th St, New York, NY 10019"], ["created_at", "2023-03-19 15:06:53.012100"], ["updated_at", "2023-03-19 15:06:53.012100"]]
+  [1m[36mTRANSACTION (88.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.8ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "San Matteo NYC"], ["address", "1559 2nd Ave, New York, NY 10028"], ["created_at", "2023-03-19 15:06:53.112066"], ["updated_at", "2023-03-19 15:06:53.112066"]]
+  [1m[36mTRANSACTION (86.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.8ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cheese"], ["ingredients", "Dough, Tomato Sauce, Cheese"], ["created_at", "2023-03-19 15:06:53.252122"], ["updated_at", "2023-03-19 15:06:53.252122"]]
+  [1m[36mTRANSACTION (75.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.9ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pepperoni"], ["ingredients", "Dough, Tomato Sauce, Cheese, Pepperoni"], ["created_at", "2023-03-19 15:06:53.334091"], ["updated_at", "2023-03-19 15:06:53.334091"]]
+  [1m[36mTRANSACTION (77.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.9ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "California"], ["ingredients", "Dough, Sauce, Ricotta, Red peppers, Mustard"], ["created_at", "2023-03-19 15:06:53.423500"], ["updated_at", "2023-03-19 15:06:53.423500"]]
+  [1m[36mTRANSACTION (76.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (1.0ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Greek"], ["ingredients", "Dough, Sauce, Cheese, Feta, Artichokes, Kalamata Olives"], ["created_at", "2023-03-19 15:06:53.512187"], ["updated_at", "2023-03-19 15:06:53.512187"]]
+  [1m[36mTRANSACTION (83.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.8ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Margherita"], ["ingredients", "Dough, Sauce, Cheese, Basil"], ["created_at", "2023-03-19 15:06:53.612279"], ["updated_at", "2023-03-19 15:06:53.612279"]]
+  [1m[36mTRANSACTION (144.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.8ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "BBQ Chicken"], ["ingredients", "Dough, BBQ sauce, Chicken, Cilantro, Red Onions, Fontina Cheese"], ["created_at", "2023-03-19 15:06:53.767335"], ["updated_at", "2023-03-19 15:06:53.767335"]]
+  [1m[36mTRANSACTION (77.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.8ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hawaiian"], ["ingredients", "Dough, Sauce, Cheese, Ham, Pineapple "], ["created_at", "2023-03-19 15:06:53.856134"], ["updated_at", "2023-03-19 15:06:53.856134"]]
+  [1m[36mTRANSACTION (98.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.3ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Meat Lovers"], ["ingredients", "Dough, Sauce, Cheese, Pepperoni, Sausage, Meatballs, Mushrooms"], ["created_at", "2023-03-19 15:06:53.965046"], ["updated_at", "2023-03-19 15:06:53.965046"]]
+  [1m[36mTRANSACTION (105.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (1.1ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Frutti di mare"], ["ingredients", "Dough, Sauce, Cheese, Tuna, Shrimp, Mussels"], ["created_at", "2023-03-19 15:06:54.078056"], ["updated_at", "2023-03-19 15:06:54.078056"]]
+  [1m[36mTRANSACTION (107.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.9ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Veggie"], ["ingredients", "Dough, Sauce, Cheese, Red Peppers, Green Peppers, Onions, Mushrooms"], ["created_at", "2023-03-19 15:06:54.199991"], ["updated_at", "2023-03-19 15:06:54.199991"]]
+  [1m[36mTRANSACTION (87.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/restaurants" for 127.0.0.1 at 2023-03-19 18:07:12 +0300
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/controllers/restaurants_controller.rb:4:in `index'
+No serializer found for resource: #<Restaurant id: 1, name: "Sottocasa NYC", address: "298 Atlantic Ave, Brooklyn, NY 11201", created_at: "2023-03-19 15:06:52.908040000 +0000", updated_at: "2023-03-19 15:06:52.908040000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Restaurant::ActiveRecord_Relation (1.11ms)
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 4.1ms | Allocations: 16674)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2023-03-19 18:07:22 +0300
+Processing by PizzasController#index as HTML
+  [1m[36mPizza Load (7.5ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/controllers/pizzas_controller.rb:4:in `index'
+No serializer found for resource: #<Pizza id: 1, name: "Cheese", ingredients: "Dough, Tomato Sauce, Cheese", created_at: "2023-03-19 15:06:53.252122000 +0000", updated_at: "2023-03-19 15:06:53.252122000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Pizza::ActiveRecord_Relation (4.35ms)
+Completed 200 OK in 55ms (Views: 46.1ms | ActiveRecord: 8.6ms | Allocations: 15467)
+
+
