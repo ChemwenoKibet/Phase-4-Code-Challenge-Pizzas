@@ -1713,3 +1713,31 @@ No serializer found for resource: #<Pizza id: 1, name: "Cheese", ingredients: "D
 Completed 200 OK in 51ms (Views: 43.2ms | ActiveRecord: 2.1ms | Allocations: 20084)
 
 
+Started GET "/" for 127.0.0.1 at 2023-03-21 19:56:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.6ms | Allocations: 705)
+Completed 200 OK in 29ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 3313)
+
+
+Started GET "/pizzas" for 127.0.0.1 at 2023-03-21 19:56:34 +0300
+Processing by PizzasController#index as HTML
+  [1m[36mPizza Load (0.4ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.78ms)
+Completed 200 OK in 279ms (Views: 260.5ms | ActiveRecord: 1.0ms | Allocations: 24870)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-21 19:56:35 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/restaurants" for 127.0.0.1 at 2023-03-21 19:56:45 +0300
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/controllers/restaurants_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 63ms (Views: 45.7ms | ActiveRecord: 2.6ms | Allocations: 17945)
+
+
